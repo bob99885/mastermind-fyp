@@ -321,7 +321,7 @@ async function updateAdvisor() {
             return;
         }
 
-        status.textContent = `Based on ${data.candidate_count.toLocaleString()} possible codes.`;
+        status.textContent = `Based on ${data.candidate_count.toLocaleString()} possible codes. ${data.evaluation_scope || ""}`;
         recommendations.innerHTML = data.recommendations.map((option, index) => `
             <article class="advice-choice">
                 <div class="advice-choice-heading">
@@ -379,7 +379,7 @@ async function updateAlgorithmAnalysis() {
         if (!response.ok) throw new Error(data.error || "Unable to compare algorithms.");
         document.getElementById("analyst-state").textContent =
             `n = ${data.n} · ${data.candidate_count} candidates`;
-        summary.textContent = "Both algorithms are checked against entropy, expected elimination, expected remaining candidates, and minimax worst-case size.";
+        summary.textContent = `Both algorithms are checked against entropy, expected elimination, expected remaining candidates, and minimax worst-case size. ${data.evaluation_scope || ""}`;
         container.innerHTML = Object.values(data.algorithms).map((algorithm) => `
             <article class="algorithm-card">
                 <div class="algorithm-card-heading">

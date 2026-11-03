@@ -2,6 +2,7 @@
 
 from collections import Counter, defaultdict
 from math import log2
+import os
 
 from backend.game.code_space import generate_code_space
 from backend.game.constants import NUM_COLORS, PEGS_PER_COLOR
@@ -20,6 +21,7 @@ HERF_METHODOLOGY = (
     "minimax reduction limits poor worst-case partitions. These are reasoned "
     "heuristic priorities, not mathematically proven optimal weights."
 )
+ADVISOR_GUESS_LIMIT = int(os.environ.get("ADVISOR_GUESS_LIMIT", "50"))
 
 
 def _partition(candidates, guess):
@@ -88,7 +90,7 @@ def get_game_advice(history, colour_inventory=None, limit=3):
         }
 
     scored = []
-    for guess in valid_guesses:
+    for guess in valid_guesses[:ADVISOR_GUESS_LIMIT]:
         partitions = _partition(candidates, guess)
         entropy, expected_remaining, worst_case_remaining = _metrics(
             partitions, candidate_count
@@ -154,6 +156,10 @@ def get_game_advice(history, colour_inventory=None, limit=3):
         "colour_inventory": colour_inventory,
         "hybrid_weights": HERF_WEIGHTS,
         "hybrid_methodology": HERF_METHODOLOGY,
+        "evaluation_scope": (
+            f"{len(valid_guesses[:ADVISOR_GUESS_LIMIT])} of "
+            f"{len(valid_guesses)} legal guesses evaluated for responsive web advice."
+        ),
         "total_remaining": sum(colour_inventory.values()),
         "criteria": _criterion_leaders(scored),
         "recommendations": recommendations,
@@ -201,6 +207,10 @@ def get_algorithm_analysis(history, colour_inventory=None):
         return {
             "n": sum(colour_inventory.values()),
             "candidate_count": candidate_count,
+            "evaluation_scope": (
+                f"{len(valid_guesses[:ADVISOR_GUESS_LIMIT])} of "
+                f"{len(valid_guesses)} legal guesses evaluated for responsive web analysis."
+            ),
             "criteria_checked": [
                 "entropy", "expected_elimination",
                 "expected_remaining", "minimax_worst_case",
@@ -209,7 +219,7 @@ def get_algorithm_analysis(history, colour_inventory=None):
         }
 
     scored = []
-    for guess in valid_guesses:
+    for guess in valid_guesses[:ADVISOR_GUESS_LIMIT]:
         partitions = _partition(candidates, guess)
         entropy, expected_remaining, worst_case_remaining = _metrics(
             partitions, candidate_count
@@ -258,6 +268,10 @@ def get_algorithm_analysis(history, colour_inventory=None):
     return {
         "n": sum(colour_inventory.values()),
         "candidate_count": candidate_count,
+        "evaluation_scope": (
+            f"{len(valid_guesses[:ADVISOR_GUESS_LIMIT])} of "
+            f"{len(valid_guesses)} legal guesses evaluated for responsive web analysis."
+        ),
         "criteria_checked": [
             "entropy", "expected_elimination",
             "expected_remaining", "minimax_worst_case",

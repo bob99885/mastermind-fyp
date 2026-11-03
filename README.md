@@ -90,6 +90,10 @@ minimax weight will improve worst-case protection at a possible average-cost.
 
 Entropy, minimax, and HERF now evaluate the complete legal 1,296-code guess
 space at each decision; there is no hidden 50-guess approximation. The
+interactive web advisor deliberately evaluates a bounded legal-guess sample
+on the free hosting tier so suggestions and the FYP analyst remain responsive;
+the API reports this scope explicitly. The solver benchmark and weighting
+experiment remain the exhaustive research surfaces. The
 five-secret measurements in `results/csv/benchmark_results.csv` are an
 operational comparison, not exhaustive evidence. Run
 `python3 experiments/benchmark_herf_weights.py` for an all-1,296-secret

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Mastermind</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <main class="game-shell">
+        <header class="page-heading">
+            <p class="eyebrow">Classic code breaker</p>
+            <h1>Play Mastermind</h1>
+            <p>Choose four colours, then use the peg feedback to crack the code.</p>
+        </header>
+
+        <section id="mode-panel" class="game-panel mode-panel" aria-labelledby="mode-heading">
+            <div id="mode-choice">
+                <p class="eyebrow">Choose a mode</p>
+                <h2 id="mode-heading">Who chooses the secret?</h2>
+                <div class="mode-actions">
+                    <button id="computer-mode-button" class="primary-action" type="button">Game 1: Computer chooses</button>
+                    <button id="player-mode-button" class="secondary-action" type="button">Game 2: Player chooses</button>
+                </div>
+                <div id="mode-feedback" class="feedback" role="status" aria-live="polite"></div>
+            </div>
+            <div id="secret-setup" class="secret-setup" hidden>
+                <p>Player 1: choose a secret code, then pass the device to Player 2.</p>
+                <div id="secret-slots" class="guess-slots" aria-label="Secret code">
+                    <button class="guess-slot" type="button" aria-label="Secret slot 1"></button>
+                    <button class="guess-slot" type="button" aria-label="Secret slot 2"></button>
+                    <button class="guess-slot" type="button" aria-label="Secret slot 3"></button>
+                    <button class="guess-slot" type="button" aria-label="Secret slot 4"></button>
+                </div>
+                <div class="palette-heading">
+                    <span>Secret colours</span>
+                    <span id="secret-selection-status">Choose four</span>
+                </div>
+                <div id="secret-palette" class="palette" aria-label="Secret code colours">
+                    <button class="colour-swatch colour-red" data-colour="1" aria-label="Red" type="button"></button>
+                    <button class="colour-swatch colour-blue" data-colour="2" aria-label="Blue" type="button"></button>
+                    <button class="colour-swatch colour-green" data-colour="3" aria-label="Green" type="button"></button>
+                    <button class="colour-swatch colour-yellow" data-colour="4" aria-label="Yellow" type="button"></button>
+                    <button class="colour-swatch colour-purple" data-colour="5" aria-label="Purple" type="button"></button>
+                    <button class="colour-swatch colour-black" data-colour="6" aria-label="Black" type="button"></button>
+                </div>
+                <button id="start-player-game-button" class="primary-action" type="button">Start player game</button>
+                <div id="setup-feedback" class="feedback" role="status" aria-live="polite"></div>
+            </div>
+        </section>
+
+        <div id="game-workspace" class="game-workspace" hidden>
+            <div class="play-column">
+        <section id="game-panel" class="game-panel" aria-labelledby="guess-heading" hidden>
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Your deductions</p>
+                    <h2 id="guess-heading">Guess board</h2>
+                </div>
+                <div class="game-heading-actions">
+                    <span id="attempt-count" class="attempt-count">Attempt 1</span>
+                    <button id="new-game-top-button" class="primary-action" type="button" hidden>New Game</button>
+                </div>
+            </div>
+
+            <div class="board-help board-instruction">Click each hole to cycle through the available colours.</div>
+            <div id="history" class="mastermind-board" aria-label="Mastermind guess board"></div>
+
+            <div class="game-actions">
+                <button id="submit-button" class="primary-action" type="button">Submit guess</button>
+                <button id="new-game-button" class="secondary-action" type="button">Change mode</button>
+            </div>
+            <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+        </section>
+
+        <section class="analyst-panel" aria-labelledby="analyst-heading">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">FYP analyst</p>
+                    <h2 id="analyst-heading">Entropy vs Minimax</h2>
+                </div>
+                <span id="analyst-state" class="attempt-count">n = 60</span>
+            </div>
+            <p id="analyst-summary" class="advisor-status">Comparing both algorithms against the current candidate state.</p>
+            <div id="algorithm-analysis" class="algorithm-analysis"></div>
+        </section>
+            </div>
+
+            <div class="analysis-column">
+        <aside class="advisor-panel" aria-labelledby="advisor-heading">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Decision support</p>
+                    <h2 id="advisor-heading">Next-move advisor</h2>
+                </div>
+            </div>
+            <p id="advisor-status" class="advisor-status" role="status" aria-live="polite">Waiting for a game.</p>
+            <p class="inventory-note">Probability of the next peg if each remaining peg is equally likely to be chosen.</p>
+            <div class="distribution-heading" aria-hidden="true"><span></span><span>Colour</span><span>Count / pool</span><span>Chance</span></div>
+            <div id="colour-distribution" class="colour-distribution" aria-label="Remaining colour distribution"></div>
+            <p id="pool-total" class="pool-total"></p>
+            <div class="criteria-panel">
+                <h3 class="recommendation-heading">Decision criteria</h3>
+                <p class="criteria-note">HERF weights normalized entropy at 50% (information gain), expected elimination at 30% (average search-space reduction), and minimax reduction at 20% (worst-case protection). These are transparent heuristic priorities, not proven optimal weights.</p>
+                <div id="criteria-leaders" class="criteria-leaders"></div>
+            </div>
+            <h3 class="recommendation-heading">Suggested guesses</h3>
+            <div id="advisor-recommendations" class="advisor-recommendations"></div>
+        </aside>
+            </div>
+        </div>
+
+        <a class="back-link" href="home.html">Back home</a>
+    </main>
+
+    <script src="../js/game.js" defer></script>
+
+</body>
+
+</html>

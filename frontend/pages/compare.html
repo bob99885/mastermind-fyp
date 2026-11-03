@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Compare Solvers</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <h1>Solver Comparison</h1>
+
+    <p class="comparison-summary">Lower is better for average guesses, worst-case guesses, and runtime.</p>
+    <div class="comparison-legend" aria-label="Table legend">
+        <span class="legend-item"><i class="best-marker"></i> Best performance</span>
+        <span class="legend-item"><i class="worst-marker"></i> Worst performance</span>
+    </div>
+
+    <table class="comparison-table">
+
+        <tr>
+            <th>Solver</th>
+            <th>Average Guesses</th>
+            <th>Worst Case</th>
+            <th>Runtime (s)</th>
+        </tr>
+
+        <tr>
+            <td>HERF Hybrid (50/30/20)</td>
+            <td class="best-cell">4.200</td>
+            <td class="best-cell">5</td>
+            <td>0.098184</td>
+        </tr>
+
+        <tr>
+            <td>Entropy</td>
+                <td>4.493</td>
+                <td class="best-cell">6</td>
+            <td>0.099609</td>
+        </tr>
+
+        <tr>
+            <td>Minimax</td>
+            <td>4.502</td>
+            <td class="best-cell">6</td>
+            <td class="worst-cell">0.105369</td>
+        </tr>
+
+        <tr>
+            <td>Genetic</td>
+            <td>4.863</td>
+            <td>12</td>
+            <td>0.031454</td>
+        </tr>
+
+        <tr>
+            <td>Knuth</td>
+            <td>5.774</td>
+            <td>9</td>
+            <td class="best-cell">0.002354</td>
+        </tr>
+
+        <tr>
+            <td>Random</td>
+            <td class="worst-cell">635.376</td>
+            <td class="worst-cell">1293</td>
+            <td>0.002535</td>
+        </tr>
+
+    </table>
+
+    <section class="comparison-insights" aria-labelledby="insights-heading">
+        <p class="eyebrow">What the results show</p>
+        <h2 id="insights-heading">Reading the benchmark</h2>
+        <div class="insight-grid">
+            <article class="insight-card">
+                <span class="insight-label">Most efficient overall</span>
+                <h3>HERF Hybrid leads the pack</h3>
+                <p>HERF Hybrid records the lowest average at <strong>4.200 guesses</strong> and the best worst case at <strong>5 guesses</strong> in the five-code benchmark. It combines information gain, average candidate reduction, and worst-case protection.</p>
+            </article>
+            <article class="insight-card">
+                <span class="insight-label">Fastest execution</span>
+                <h3>Knuth is quickest</h3>
+                <p>Knuth has the lowest runtime at <strong>0.002354 seconds</strong>. Its average of <strong>5.774 guesses</strong> is higher than the leading hybrid strategies, showing the trade-off between speed and guess efficiency.</p>
+            </article>
+            <article class="insight-card insight-card-warning">
+                <span class="insight-label">Baseline gap</span>
+                <h3>Random is the outlier</h3>
+                <p>Random needs <strong>635.376 guesses on average</strong> and reaches <strong>1,293</strong> in the worst case. This gives a clear baseline for measuring how much strategy improves the game.</p>
+            </article>
+        </div>
+    </section>
+
+    <br>
+
+    <a href="home.html">
+        <button>Back Home</button>
+    </a>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Statistics</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <h1>Statistics Dashboard</h1>
+
+    <div id="statistics">Loading statistics...</div>
+
+    <section class="player-analytics" aria-labelledby="player-analytics-heading">
+        <p class="eyebrow">Human performance</p>
+        <h2 id="player-analytics-heading">Player Analytics</h2>
+        <div id="player-analytics">Loading player analytics...</div>
+    </section>
+
+    <section class="graphs">
+        <h2>Average Comparison</h2>
+        <img class="graph graph-zoomable" src="../graphs/average_log.png" alt="Average solver performance">
+
+        <h2>Worst Case Comparison</h2>
+        <img class="graph graph-zoomable" src="../graphs/worst_case.png" alt="Worst case solver performance">
+
+        <h2>Improvement Over Random</h2>
+        <img class="graph graph-zoomable" src="../graphs/improvement.png" alt="Solver improvement over random">
+
+        <h2>Runtime Comparison</h2>
+        <img class="graph graph-zoomable" src="../graphs/runtime.png" alt="Solver runtime comparison">
+    </section>
+
+    <br><br>
+
+    <a href="home.html">
+        <button>Back Home</button>
+    </a>
+
+</body>
+<script src="../js/statistics.js" defer></script>
+<script src="../js/graph-zoom.js?v=3" defer></script>
+</html>

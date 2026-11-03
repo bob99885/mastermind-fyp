@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Solver Demo</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <h1>AI Solver Demo</h1>
+
+    <select id="solver">
+        <option value="random">Random</option>
+        <option value="knuth">Knuth</option>
+        <option value="entropy">Entropy</option>
+        <option value="minimax">Minimax</option>
+        <option value="hybrid">HERF Hybrid (50/30/20)</option>
+        <option value="genetic">Genetic</option>
+        <option value="adaptive">Adaptive Statistical</option>
+    </select>
+
+    <br><br>
+
+    <button onclick="runSolver()">
+        Run Solver
+    </button>
+
+    <div id="output"></div>
+
+    <br>
+
+    <a href="home.html">
+        <button>Back Home</button>
+    </a>
+
+    <script src="../js/solver.js" defer></script>
+
+</body>
+</html>

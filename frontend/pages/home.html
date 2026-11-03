@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adaptive Statistical Strategies for Mastermind</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <main class="home-shell">
+        <header class="home-hero">
+            <div>
+                <p class="eyebrow">Adaptive statistical strategies / FYP edition</p>
+                <h1>Mastermind</h1>
+                <p class="hero-copy">Read the pattern. Test the theory. Crack the code.</p>
+            </div>
+            <button id="rules-button" class="rules-button" type="button" aria-haspopup="dialog">How to play <span aria-hidden="true">?</span></button>
+        </header>
+
+        <section class="launch-section" aria-labelledby="launch-heading">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Start here</p>
+                    <h2 id="launch-heading">Choose your challenge</h2>
+                </div>
+                <span class="live-status"><i></i> Engine ready</span>
+            </div>
+            <div class="game-mode-grid">
+                <a class="launch-card launch-card-primary" href="play.html?mode=computer">
+                    <span class="launch-icon" aria-hidden="true">01</span>
+                    <span><strong>Game 1</strong><small>Computer chooses the secret code</small></span>
+                    <span class="launch-arrow" aria-hidden="true">&#8594;</span>
+                </a>
+                <a class="launch-card launch-card-primary" href="play.html?mode=player">
+                    <span class="launch-icon" aria-hidden="true">02</span>
+                    <span><strong>Game 2</strong><small>Player 1 chooses for Player 2</small></span>
+                    <span class="launch-arrow" aria-hidden="true">&#8594;</span>
+                </a>
+            </div>
+            <div class="tool-grid">
+                <a class="tool-card" href="solver_demo.html"><span class="tool-number">03</span><span><strong>AI Solver</strong><small>Watch seven algorithms think</small></span><span class="launch-arrow" aria-hidden="true">&#8594;</span></a>
+                <a class="tool-card" href="compare.html"><span class="tool-number">04</span><span><strong>Compare Solvers</strong><small>Benchmark strategy and speed</small></span><span class="launch-arrow" aria-hidden="true">&#8594;</span></a>
+                <a class="tool-card" href="statistics.html"><span class="tool-number">05</span><span><strong>Statistics</strong><small>Explore the experiment results</small></span><span class="launch-arrow" aria-hidden="true">&#8594;</span></a>
+            </div>
+        </section>
+
+        <section class="home-note">
+            <span class="note-mark">i</span>
+            <p><strong>Every guess is evidence.</strong> Black pegs mean the colour and position are exact. White pegs mean the colour is right, but the position is not.</p>
+        </section>
+    </main>
+
+    <dialog id="rules-dialog" class="rules-dialog" aria-labelledby="rules-title">
+        <div class="dialog-header"><div><p class="eyebrow">Quick briefing</p><h2 id="rules-title">How to play</h2></div><button id="close-rules" class="icon-button" type="button" aria-label="Close rules">&#10005;</button></div>
+        <ol class="rules-list">
+            <li><span>01</span><p><strong>Choose a mode</strong>Computer mode generates the hidden code. Player mode lets Player 1 set it.</p></li>
+            <li><span>02</span><p><strong>Build a guess</strong>Pick four colours from the palette. Colours may repeat.</p></li>
+            <li><span>03</span><p><strong>Read the pegs</strong>Black is an exact match. White is a correct colour in the wrong position.</p></li>
+            <li><span>04</span><p><strong>Crack the code</strong>Use your history to solve the four-colour code in as few attempts as possible.</p></li>
+        </ol>
+        <a class="dialog-action" href="play.html">Start playing <span aria-hidden="true">&#8594;</span></a>
+    </dialog>
+    <script src="../js/home.js" defer></script>
+
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+Solver,Average,Best,Worst,RuntimeSeconds
+Random,635.376,1,1293,0.002535
+Knuth,5.774,1,9,0.002354
+Entropy,4.493,2,6,0.099609
+Minimax,4.502,2,6,0.105369
+HERF Hybrid (50/30/20),4.200,3,5,0.098184
+Genetic,4.863,2,12,0.031454

@@ -1,0 +1,7 @@
+Solver,RuntimeSeconds
+Random,0.003060
+Knuth,0.002183
+Entropy,0.095027
+Minimax,0.099411
+HERF Hybrid (50/30/20),0.098184
+Genetic,0.044564

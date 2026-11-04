@@ -63,8 +63,11 @@ button:hover {
 .algorithm-metrics span { padding: 4px 6px; border-radius: 3px; background: #e8f1ee; color: #52615e; font: 0.68rem Arial, sans-serif; }
 .algorithm-card h3 { margin: 14px 0 8px; color: #17212b; font: 700 0.78rem Arial, sans-serif; }
 .full-distribution { display: grid; gap: 5px; }
-.full-distribution-row { display: grid; grid-template-columns: 42px 1fr 105px; align-items: center; gap: 7px; color: #52615e; font: 0.7rem Arial, sans-serif; }
-.full-distribution-row strong { text-align: right; font-size: 0.66rem; }
+.full-distribution-row { display: grid; grid-template-columns: 42px 1fr 70px; align-items: center; gap: 7px; color: #52615e; font: 0.7rem Arial, sans-serif; }
+.full-distribution-row strong { display: flex; flex-direction: column; align-items: end; text-align: right; color: #176b5d; font-size: 0.76rem; font-variant-numeric: tabular-nums; }
+.full-distribution-row strong small { margin-top: 2px; color: #71807c; font-size: 0.58rem; font-weight: 400; }
+.full-distribution-row.most-likely { color: #17212b; font-weight: 700; }
+.full-distribution-row.most-likely strong { color: #b34d36; }
 #history { min-height: 0; overflow-y: auto; }
 .advisor-panel h2 { margin: 5px 0 0; font-size: 1.35rem; }
 .advisor-status { margin: 18px 0 12px; color: #52615e; font: 0.88rem/1.45 Arial, sans-serif; }
@@ -96,8 +99,10 @@ button:hover {
 .outcome-distribution { display: grid; gap: 4px; margin-top: 7px; }
 .outcome-row { display: grid; grid-template-columns: 35px 1fr 34px; align-items: center; gap: 5px; }
 .outcome-row strong { text-align: right; font-size: 0.66rem; }
-.outcome-bar { height: 5px; overflow: hidden; border-radius: 3px; background: #dce8e4; }
+.outcome-bar { height: 10px; overflow: hidden; border: 1px solid #cbd9d5; border-radius: 5px; background: #e6eeeb; }
 .outcome-bar i { display: block; height: 100%; border-radius: inherit; background: #176b5d; }
+.full-distribution-row.most-likely .outcome-bar { height: 13px; border-color: #b34d36; }
+.full-distribution-row.most-likely .outcome-bar i { background: #b34d36; }
 .advice-metric-label { color: #71807c; font: 0.72rem Arial, sans-serif; }
 .advice-code-row { display: flex; align-items: center; gap: 12px; margin-top: 10px; }
 .advice-code { color: #17212b; font: 700 0.95rem Arial, sans-serif; font-variant-numeric: tabular-nums; }

@@ -398,13 +398,21 @@ async function updateAlgorithmAnalysis() {
                 </div>
                 <h3>All possible feedback distributions</h3>
                 <div class="full-distribution">
-                    ${algorithm.distribution.map((outcome) => `
-                        <div class="full-distribution-row">
+                    ${(() => {
+                        const maxProbability = Math.max(
+                            ...algorithm.distribution.map((outcome) => outcome.probability),
+                            1
+                        );
+                        return algorithm.distribution.map((outcome) => `
+                        <div class="full-distribution-row${outcome.probability === maxProbability ? " most-likely" : ""}">
                             <span>${outcome.black}B ${outcome.white}W</span>
-                            <span class="outcome-bar"><i style="width: ${outcome.probability}%"></i></span>
-                            <strong>${outcome.count} (${outcome.probability}%)</strong>
+                            <span class="outcome-bar" aria-label="${outcome.probability}% probability">
+                                <i style="width: ${Math.max(outcome.probability / maxProbability * 100, 3)}%"></i>
+                            </span>
+                            <strong>${outcome.probability}%<small>${outcome.count} codes</small></strong>
                         </div>
-                    `).join("")}
+                        `).join("");
+                    })()}
                 </div>
             </article>
         `).join("");

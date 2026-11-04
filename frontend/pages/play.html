@@ -85,6 +85,57 @@
                 <span id="analyst-state" class="attempt-count">n = 60</span>
             </div>
             <p id="analyst-summary" class="advisor-status">Comparing both algorithms against the current candidate state.</p>
+            <section class="formula-map" aria-labelledby="formula-map-heading">
+                <h3 id="formula-map-heading">How the numbers are calculated</h3>
+                <div class="formula-flow">
+                    <div class="formula-step">
+                        <strong>N candidate codes</strong>
+                        <span>All secrets still possible</span>
+                    </div>
+                    <span class="formula-arrow" aria-hidden="true">&#8594;</span>
+                    <div class="formula-step">
+                        <strong>Feedback groups</strong>
+                        <span>Group secrets by B/W result</span>
+                    </div>
+                    <span class="formula-arrow" aria-hidden="true">&#8594;</span>
+                    <div class="formula-step">
+                        <strong>Count each group</strong>
+                        <span>s<sub>i</sub> secrets in group i</span>
+                    </div>
+                </div>
+                <div class="formula-results">
+                    <div class="formula-result">
+                        <strong>Probability</strong>
+                        <code>p<sub>i</sub> = s<sub>i</sub> / N</code>
+                        <span>Chance of each feedback</span>
+                    </div>
+                    <div class="formula-result">
+                        <strong>Entropy</strong>
+                        <code>H = -&Sigma; p<sub>i</sub> log<sub>2</sub>(p<sub>i</sub>)</code>
+                        <span>Expected information gained</span>
+                    </div>
+                    <div class="formula-result">
+                        <strong>Expected left</strong>
+                        <code>E = &Sigma; s<sub>i</sub><sup>2</sup> / N</code>
+                        <span>Average candidates remaining</span>
+                    </div>
+                    <div class="formula-result">
+                        <strong>Ruled out</strong>
+                        <code>(1 - E / N) &times; 100%</code>
+                        <span>Average candidates eliminated</span>
+                    </div>
+                    <div class="formula-result">
+                        <strong>Worst case</strong>
+                        <code>max(s<sub>i</sub>)</code>
+                        <span>Largest remaining group</span>
+                    </div>
+                    <div class="formula-result formula-result-highlight">
+                        <strong>HERF score</strong>
+                        <code>0.5H&#8242; + 0.3R&#8242; + 0.2M&#8242;</code>
+                        <span>H&#8242;, R&#8242;, M&#8242; are normalized scores</span>
+                    </div>
+                </div>
+            </section>
             <div id="algorithm-analysis" class="algorithm-analysis"></div>
         </section>
             </div>

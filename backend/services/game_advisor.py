@@ -21,7 +21,7 @@ HERF_METHODOLOGY = (
     "minimax reduction limits poor worst-case partitions. These are reasoned "
     "heuristic priorities, not mathematically proven optimal weights."
 )
-ADVISOR_GUESS_LIMIT = int(os.environ.get("ADVISOR_GUESS_LIMIT", "50"))
+ADVISOR_GUESS_LIMIT = int(os.environ.get("ADVISOR_GUESS_LIMIT", "60"))
 
 
 def _partition(candidates, guess):
